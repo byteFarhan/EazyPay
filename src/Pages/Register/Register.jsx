@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import { LuPhoneCall } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../public/Hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 // import img from '../../assets/EazyPay.png'
 const img_hoisting_api = `https://api.imgbb.com/1/upload?key=${
   import.meta.env.VITE_imgage_hoisting_key
 }`;
 const Register = () => {
+  const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
   const {
     register,
@@ -17,15 +19,35 @@ const Register = () => {
   } = useForm();
   const handleRegister = async (data) => {
     // console.log(data);
-    const { name, image, phoneNum, email, password } = data;
+    const { image, ...userInfo } = data;
+    // console.log(userInfo);
     const imageFile = {
       image: image[0],
     };
     const imgbbRes = await axiosPublic.post(img_hoisting_api, imageFile, {
       headers: { "content-type": "multipart/form-data" },
     });
-    console.log(imgbbRes);
+    // console.log(imgbbRes);
+
+    if (imgbbRes.data.status === 200) {
+      userInfo.image = imgbbRes.data.data.display_url;
+    }
+    // console.log(userInfo);
+    if (imgbbRes.data.success) {
+      const res = await axiosPublic.post("/users", userInfo);
+      // console.log(res.data);
+      if (res.data.insertedId) {
+        reset();
+        navigate("/");
+        toast.success(`Your account created successfully.`);
+      } else if (res.data.message === "user already exists!") {
+        reset();
+        toast.error("User already exists! Login your account.");
+        navigate("/login");
+      }
+    }
   };
+
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
