@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
 import { LuPhoneCall } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../../public/Hooks/useAxiosPublic";
 
 // import img from '../../assets/EazyPay.png'
-
+const img_hoisting_api = `https://api.imgbb.com/1/upload?key=${
+  import.meta.env.VITE_imgage_hoisting_key
+}`;
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -12,7 +16,15 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const handleRegister = async (data) => {
-    console.log(data);
+    // console.log(data);
+    const { name, image, phoneNum, email, password } = data;
+    const imageFile = {
+      image: image[0],
+    };
+    const imgbbRes = await axiosPublic.post(img_hoisting_api, imageFile, {
+      headers: { "content-type": "multipart/form-data" },
+    });
+    console.log(imgbbRes);
   };
   return (
     <>
