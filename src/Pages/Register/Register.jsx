@@ -3,6 +3,7 @@ import { LuPhoneCall } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 // import img from '../../assets/EazyPay.png'
+
 const Register = () => {
   const {
     register,
@@ -10,7 +11,7 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const handleRegister = (data) => {
+  const handleRegister = async (data) => {
     console.log(data);
   };
   return (
