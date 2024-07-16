@@ -1,8 +1,7 @@
 import { LuPhoneCall } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-// import img from '../../assets/EazyPay.png'
-const Register = () => {
+const Login = () => {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
@@ -32,57 +31,8 @@ const Register = () => {
               </a>
             </div> */}
             <h3 className="text-2xl md:text-3xl font-semibold text-black text-center">
-              Register Your Account
+              Welcome Back!
             </h3>
-            <div className="relative flex items-center mt-8">
-              <span className="absolute">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-              </span>
-
-              <input
-                type="text"
-                className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                placeholder="Username"
-              />
-            </div>
-
-            <label
-              //   for="dropzone-file"
-              className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-gray-300 dark:text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                />
-              </svg>
-
-              <h2 className="mx-3 text-gray-400">Profile Photo</h2>
-
-              <input id="dropzone-file" type="file" className="hidden" />
-            </label>
-
             <div className="relative flex items-center mt-6">
               <span className="absolute">
                 <LuPhoneCall className="size-5 mx-3 text-gray-300 dark:text-gray-500" />
@@ -147,15 +97,15 @@ const Register = () => {
 
             <div className="mt-6">
               <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                Register
+                Login
               </button>
 
               <div className="mt-6 text-center ">
                 <Link
-                  to={"/login"}
+                  to={"/register"}
                   className="text-sm text-blue-500 hover:underline dark:text-blue-400"
                 >
-                  Already have an account?
+                  {`Don't have any account?`}
                 </Link>
               </div>
             </div>
@@ -166,4 +116,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
