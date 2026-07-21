@@ -31,7 +31,7 @@ const Login = () => {
             <h3 className="text-2xl md:text-3xl font-semibold text-black text-center">
               Welcome Back!
             </h3>
-            <div>
+            {/* <div>
               <div className="relative flex items-center mt-6">
                 <span className="absolute">
                   <LuPhoneCall className="size-5 mx-3 text-gray-300 dark:text-gray-500" />
@@ -49,7 +49,7 @@ const Login = () => {
                   This field is required!
                 </span>
               )}
-            </div>
+            </div> */}
             <div>
               <div className="relative flex items-center mt-6">
                 <span className="absolute">

@@ -100,61 +100,6 @@ const Register = () => {
               )}
             </div>
             <div>
-              <label
-                //   for="dropzone-file"
-                className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-gray-300 dark:text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                  />
-                </svg>
-
-                <h2 className="mx-3 text-gray-400">Profile Photo</h2>
-
-                <input
-                  id="dropzone-file"
-                  type="file"
-                  className="hidden"
-                  {...register("image", { required: true })}
-                />
-              </label>
-              {errors?.image && (
-                <span className="text-red-600 font-medium text-sm mt-2">
-                  This field is required!
-                </span>
-              )}
-            </div>
-
-            <div>
-              <div className="relative flex items-center mt-6">
-                <span className="absolute">
-                  <LuPhoneCall className="size-5 mx-3 text-gray-300 dark:text-gray-500" />
-                </span>
-
-                <input
-                  type="number"
-                  className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                  placeholder="Phone Number"
-                  {...register("phoneNum", { required: true })}
-                />
-              </div>
-              {errors?.phoneNum && (
-                <span className="text-red-600 font-medium text-sm mt-2">
-                  This field is required!
-                </span>
-              )}
-            </div>
-            <div>
               <div className="relative flex items-center mt-6">
                 <span className="absolute">
                   <svg
@@ -186,6 +131,65 @@ const Register = () => {
                 </span>
               )}
             </div>
+            <div>
+              <div>
+                <select
+                  defaultValue={"default"}
+                  className="block w-full mt-2 px-2.5 py-3 text-base text-gray-900 bg-white border border-gray-300 rounded focus:outline-1 outline-[#D1A054]"
+                  {...register("role", { required: true })}
+                >
+                  <option disabled value={"default"}>
+                    Role
+                  </option>
+                  <option value="user" className="uppercase">
+                    user
+                  </option>
+                  <option value="agent" className="uppercase">
+                    agent
+                  </option>
+                </select>
+                {errors.role && (
+                  <span className="mt-2 text-red-600">
+                    This field is required
+                  </span>
+                )}
+              </div>
+            </div>
+            <div>
+              <div>
+                <input
+                  type="file"
+                  className="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-800 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:focus:border-blue-300"
+                  {...register("image", { required: true })}
+                />
+              </div>
+              {errors?.image && (
+                <span className="text-red-600 font-medium text-sm mt-2">
+                  This field is required!
+                </span>
+              )}
+            </div>
+
+            {/* <div>
+              <div className="relative flex items-center mt-6">
+                <span className="absolute">
+                  <LuPhoneCall className="size-5 mx-3 text-gray-300 dark:text-gray-500" />
+                </span>
+
+                <input
+                  type="number"
+                  className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  placeholder="Phone Number"
+                  {...register("phoneNum", { required: true })}
+                />
+              </div>
+              {errors?.phoneNum && (
+                <span className="text-red-600 font-medium text-sm mt-2">
+                  This field is required!
+                </span>
+              )}
+            </div> */}
+
             <div>
               <div className="relative flex items-center mt-4">
                 <span className="absolute">
